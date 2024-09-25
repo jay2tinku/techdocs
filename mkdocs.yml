@@ -1,4 +1,4 @@
-site_name: architecture-diagram
+site_name: snow-action
 site_description: Architecture diagram
 plugins:
   - techdocs-core
