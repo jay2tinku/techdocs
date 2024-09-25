@@ -1,5 +1,5 @@
 site_name: snow-action
-site_description: Architecture diagram
+site_description: SNOW Actions
 plugins:
   - techdocs-core
 nav:
