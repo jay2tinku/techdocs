@@ -8,7 +8,7 @@ Backstage is an open-source platform for building developer portals, created by 
 
 ## High-Level Architecture
 
-![Architecture Diagram](./architecture-diagram.png)
+![Architecture Diagram](./architecture-diagram.jpg)
 
 ### Key Features:
 1. **Software Catalog:**
