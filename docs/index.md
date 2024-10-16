@@ -1,73 +1,55 @@
-# Red Hat Developer Hub Architecture Diagram
+# Backstage Architecture Diagram
 
 ## Overview
 
-The Red Hat Developer Hub (RHDH) is designed to streamline developer workflows by providing a centralized platform for accessing tools, documentation, and services. Its architecture leverages modern cloud-native principles to deliver a scalable, secure, and extensible environment for developers. Below, we explore the high-level architecture diagram, the major components, and their respective roles within the system.
+Backstage is an open-source platform for building developer portals, created by Spotify. It provides a centralized place where developers can manage, discover, and interact with various tools, services, and infrastructure components within an organization. Backstage focuses on making the lives of developers easier by providing a single interface to manage everything from APIs to documentation and software catalogs.
 
 ---
 
 ## High-Level Architecture
 
-![Architecture Diagram](./rhdh-architecture-diagram.png)
+![Architecture Diagram](./architecture-diagram.png)
 
-### Key Components:
+### Key Features:
+1. **Software Catalog:**
+Backstage provides a centralized catalog of all software, services, and components. It helps teams maintain a clear overview of the services they own, track ownership, and manage their entire infrastructure.
 
-1. **User Interface (UI)**
-   - The Developer Hub's front-end is a web-based portal designed for ease of use, providing developers with access to tools, project resources, and documentation. Built with modern JavaScript frameworks, the UI interacts with backend services via REST or GraphQL APIs.
+2. **TechDocs:**
+It includes built-in support for technical documentation generation. Using tools like MkDocs and Markdown, developers can generate and publish documentation for services, APIs, and other software components within the portal, making it easier to find and maintain documentation.
 
-2. **Backend Services**
-   - Backend services handle user authentication, resource management, and data aggregation. These microservices are containerized and orchestrated by Kubernetes. Each service performs distinct functions such as user management, project tracking, and integration with external tools.
+3. **Plugins Architecture:**
+Backstage is highly extensible and supports a plugin-based architecture. This allows organizations to integrate Backstage with their internal and third-party tools such as CI/CD pipelines, monitoring systems, cloud platforms, version control, and more.
 
-3. **API Gateway**
-   - The API Gateway acts as the entry point for all client requests, routing them to the appropriate backend services. It ensures security through authentication and authorization, and provides features such as request throttling and caching.
+4. **API Management:**
+Backstage can help manage APIs with features like automatic API discovery, cataloging, and documentation. It simplifies the process of creating, deploying, and managing APIs across teams.
 
-4. **Identity Management & Single Sign-On (SSO)**
-   - Red Hat Developer Hub integrates with Red Hat’s Identity Management (IdM) solution, enabling SSO for all connected services. This provides a seamless login experience for developers across Red Hat and external tools.
+5. **Golden Path Templates:**
+Backstage includes "Golden Path" templates, which are predefined templates for building services, infrastructure, or other components that align with best practices. It standardizes and accelerates new service creation.
 
-5. **OpenShift Container Platform**
-   - The core of the architecture is powered by Red Hat OpenShift, which provides container orchestration, deployment automation, and lifecycle management. OpenShift ensures that all services run in isolated, scalable containers, allowing for dynamic scaling based on user demand.
+6. **Self-Service and Developer Autonomy:**
+By integrating multiple developer tools into a single interface, Backstage enables developers to operate more autonomously. They can onboard, monitor, and manage their projects and services without needing constant intervention from operations or platform teams.
 
-6. **Tekton Pipelines**
-   - For CI/CD, the Developer Hub uses Tekton Pipelines, which provides a Kubernetes-native framework for building, testing, and deploying applications. This ensures that development workflows are streamlined, and new features can be delivered quickly.
-
-7. **GitOps Management**
-   - GitOps principles are applied to manage configurations and application states. Tools such as ArgoCD or OpenShift GitOps are used to ensure that desired states are defined in version-controlled repositories and automatically synchronized with the live environment.
-
-8. **Artifact Repository**
-   - The Hub integrates with JFrog Artifactory or other artifact repositories for storing and managing build artifacts like containers, libraries, and binaries. This ensures that developers can easily access and reuse components across projects.
-
-9. **Observability Stack**
-   - Monitoring and logging services such as Prometheus and Grafana are used to track the health and performance of the platform. Logs from the services are collected and aggregated via the OpenShift Logging stack (ELK/EFK) for troubleshooting and auditing purposes.
-
-10. **Red Hat Service Integrations**
-    - The Hub is integrated with several Red Hat services, including Red Hat OpenShift Pipelines, Quay (container registry), and OpenShift Service Mesh for networking between services. These integrations provide additional value to developers by centralizing access to powerful tools within the Hub.
-
-11. **External Tool Integrations**
-    - The Developer Hub connects to external tools like GitHub, Jira, and SonarQube to offer a full end-to-end development lifecycle. Developers can configure these integrations directly from the Hub for enhanced productivity.
+7. **Scalable Microservice Architecture:**
+With Backstage, microservice architecture management is made easier, with clear ownership, health checks, and documentation for every service. This improves the transparency and health of services across large organizations.
 
 ---
 
-## Benefits of Red Hat Developer Hub Architecture
+## Benefits of Backstage
 
-1. **Scalability:**
-   - Built on OpenShift, the platform can scale horizontally, ensuring that it can handle a growing number of users and workloads with ease.
-
-2. **Security:**
-   - With integrated identity management and SSO, the platform ensures that user data and credentials are handled securely across all services.
-
-3. **Extensibility:**
-   - The modular nature of the architecture allows for easy integration of new services and tools as developer needs evolve.
-
-4. **Developer Efficiency:**
-   - By centralizing key tools and services, the Developer Hub simplifies the workflow for developers, reducing context-switching and boosting productivity.
-
-5. **DevOps and GitOps Friendly:**
-   - With support for Tekton Pipelines, GitOps, and Kubernetes-native operations, the architecture is aligned with modern DevOps practices, ensuring efficient and automated deployments.
-
+1. **Increased Productivity:**
+Backstage eliminates the need to switch between multiple tools, providing everything in one place.
+2. **Standardization:**
+By offering a single platform with best-practice templates, it ensures standardization across teams.
+3. **Improved Developer Experience:**
+Developers can spend more time coding and less time dealing with tools, settings, and documentation management.
+4. **Visibility and Ownership:**
+It promotes transparency in who owns what, which services are running, and their status.
+5. **Extensibility:**
+With plugins, Backstage can be extended to integrate with virtually any tool or platform.
 ---
 
 ## Conclusion
 
-The Red Hat Developer Hub is built on a robust and scalable architecture that aligns with cloud-native principles, providing developers with a centralized, secure, and efficient platform for their development needs. By leveraging OpenShift, Tekton, and integrated Red Hat services, the Hub empowers teams to focus on building and delivering innovative solutions with greater speed and reliability.
+Backstage has evolved into a key tool for organizations adopting microservices and DevOps practices, aiming to simplify developer workflows, increase productivity, and ensure consistency across the development lifecycle.
 
 For further details on specific components or integration options, refer to the respective sections of this documentation.
